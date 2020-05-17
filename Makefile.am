@@ -205,13 +205,13 @@ coverage:
 	$(MAKE) all CFLAGS="" AM_CPPFLAGS="-fprofile-arcs -ftest-coverage -DDEBUG" LDFLAGS="-lgcov"
 
 sonar_sonar:
-    sonar-scanner -X
+	sonar-scanner -X
 
 .c.h:
 	@srcdir@/scripts/MakeHeader.py $<
 
 cppcheck:
-    cppcheck -q -v . --enable=all -DHAVE_CGROUP -DHAVE_OPENVZ -DHAVE_TASKSTATS
+	cppcheck -q -v . --enable=all -DHAVE_CGROUP -DHAVE_OPENVZ -DHAVE_TASKSTATS
 
 dist-hook: $(top_distdir)/configure
 	@if grep 'pkg_m4_absent' '$(top_distdir)/configure'; then \
