@@ -205,7 +205,7 @@ coverage:
 	$(MAKE) all CFLAGS="" AM_CPPFLAGS="-fprofile-arcs -ftest-coverage -DDEBUG" LDFLAGS="-lgcov"
 
 sonar_sonar:
-	sonar-scanner -X
+	sonar-scanner  -Dsonar.projectKey=htop-project -X
 
 .c.h:
 	@srcdir@/scripts/MakeHeader.py $<
